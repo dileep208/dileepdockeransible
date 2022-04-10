@@ -1,0 +1,29 @@
+---
+- name: for Deploying application in docker
+  hosts: dev
+  become: yes
+  tasks:
+    - name: to install docker
+      yum: 
+        name: dokcer
+        state: present
+    - name: to start and enable docker
+      service:
+        name: docker
+        enabled: yes
+        state: started
+    - name: install python pip
+      yum:
+        name: python-pip
+        state: present
+    - name: intall docker-py module
+      pip: 
+        name: docker-py
+        state: present
+    - name: starting the container
+      docker_container:
+        name: dileep208app
+        image: "dileep208/dileep208app:{{DOCKER_TAG}}"
+        state: started
+        published_ports:
+          - 0.0.0.0:8080:8080

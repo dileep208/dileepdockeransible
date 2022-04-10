@@ -1,0 +1,2 @@
+[dev]
+i.p ansible_user=ec2-user
