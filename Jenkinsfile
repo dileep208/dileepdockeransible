@@ -22,7 +22,7 @@ pipeline{
 
         stage('DOCKER BUILD'){
             steps{
-                sh "docker build . -t dileep208/dileepapp:${DOCKER_TAG}"
+                sh "docker build . -t dileepugrangi/dileepapp:${DOCKER_TAG}"
 
             }
         }
@@ -30,9 +30,9 @@ pipeline{
         stage('DOCKER PUSH'){
             steps{
                 withCredentials([string(credentialsId: 'dockerHubPwd', variable: 'dockerHubPwd')]) {
-                    sh "docker login -u dileep208 -p ${dockerHubPwd}"
+                    sh "docker login -u dileepugrangi -p ${dockerHubPwd}"
             }
-            sh "docker push dileep208/dileepapp:${DOCKER_TAG}"
+            sh "docker push dileepugrangi/dileepapp:${DOCKER_TAG}"
                 
             }
         }
