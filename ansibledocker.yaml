@@ -22,7 +22,7 @@
         state: present
     - name: starting the container
       docker_container:
-        name: dileep208app
+        name: dileepapp
         image: "dileepugrangi/dileepapp:{{DOCKER_TAG}}"
         state: started
         published_ports:
