@@ -5,7 +5,7 @@
   tasks:
     - name: to install docker
       yum: 
-        name: dokcer
+        name: docker
         state: present
     - name: to start and enable docker
       service:
