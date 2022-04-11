@@ -23,7 +23,7 @@
     - name: starting the container
       docker_container:
         name: dileep208app
-        image: "dileep208/dileep208app:{{DOCKER_TAG}}"
+        image: "dileepugrangi/dileepapp:{{DOCKER_TAG}}"
         state: started
         published_ports:
           - 0.0.0.0:8080:8080
